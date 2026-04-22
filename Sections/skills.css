@@ -1,0 +1,155 @@
+/* ============================================
+   SKILLS — My Skills section & tech slider
+   ============================================ */
+
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.skills-box {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    mix-blend-mode: lighten;
+    opacity: 0.7;
+    margin-bottom: 60px;
+}
+
+.skills-image {
+    width: 70%;
+    mix-blend-mode: difference;
+}
+
+.Designer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    top: 25%;
+    left: 5%;
+    max-width: 300px;
+}
+
+.Designer h1 {
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.Designer p {
+    line-height: 23px;
+}
+
+.coder {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    top: 25%;
+    right: 5%;
+    max-width: 300px;
+}
+
+.coder h1 {
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.coder p {
+    line-height: 23px;
+}
+
+.coder-text {
+    font-size: 50px;
+}
+
+/* ---- Logo Loop — Smooth infinite scroll ---- */
+.logo-loop-container {
+    position: absolute;
+    bottom: -15%; /* Pushed significantly downward to clear the overlapping graphic */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 100px;
+    overflow: hidden;
+}
+
+/* Fade edges */
+.logo-loop-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(24px, 8%, 120px);
+    z-index: 2;
+    pointer-events: none;
+}
+.logo-loop-fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,10,1) 0%, transparent 100%);
+}
+.logo-loop-fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0,0,10,1) 0%, transparent 100%);
+}
+
+/* Track — contains 2 copies for seamless loop */
+.logo-loop-track {
+    display: flex;
+    width: max-content;
+    animation: logoLoopScroll 35s linear infinite;
+    will-change: transform;
+}
+
+.logo-loop-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes logoLoopScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Each sequence copy */
+.logo-loop-seq {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding-right: 50px;
+    flex-shrink: 0;
+}
+
+/* Individual logo item */
+.logo-loop-item {
+    flex-shrink: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(.23,1,.32,1), filter 0.3s ease;
+}
+
+.logo-loop-item img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+.logo-loop-track:hover .logo-loop-item {
+    filter: grayscale(0.8) opacity(0.5);
+}
+
+.logo-loop-track:hover .logo-loop-item:hover {
+    filter: grayscale(0) opacity(1);
+    transform: scale(1.15);
+    transition: transform 0.35s cubic-bezier(.23,1,.32,1), filter 0.35s ease;
+}

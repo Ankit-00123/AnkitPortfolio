@@ -1,0 +1,114 @@
+/* ============================================
+   SIDEBAR — Mobile nav drawer
+   ============================================ */
+
+.menu-icon {
+    font-size: 35px;
+    cursor: pointer;
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 70%;
+    width: 0%;
+    background: rgba(5, 8, 24, 0.82);
+    z-index: 999;
+    box-shadow: -4px 0 40px rgba(114, 161, 222, 0.2);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-left: 1px solid rgba(114,161,222,0.12);
+    opacity: 0;
+    border-bottom-left-radius: 100%;
+}
+
+.close-icon {
+    font-size: 50px;
+    color: var(--text-secondary);
+    padding-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-icon:hover {
+    color: var(--text-primary);
+}
+
+.sidebar ul {
+    padding-left: 20px;
+}
+
+.sidebar ul li {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-family: var(--font-main);
+    color: var(--text-secondary);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 20px rgba(114,161,222,0.6);
+}
+
+.social-sidebar {
+    padding-left: 20px;
+    margin-top: 60px;
+    text-wrap: nowrap;
+}
+
+.social-sidebar a {
+    font-size: 35px;
+    padding: 5px 5px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.35s, text-shadow 0.35s;
+}
+
+.social-sidebar a:hover {
+    color: #72a1de;
+    text-shadow: 0 0 16px rgba(114,161,222,0.7);
+}
+
+/* Sidebar open animation */
+.sidebar.open-sidebar {
+    animation: openSideBarAnimation 1.5s forwards;
+}
+
+@keyframes openSideBarAnimation {
+    to {
+        width: 80%;
+        opacity: 1;
+        bottom: 0;
+        border-radius: 0;
+    }
+}
+
+/* Sidebar close animation */
+.sidebar.close-sidebar {
+    animation: closeSideBarAnimation 1.5s forwards;
+}
+
+@keyframes closeSideBarAnimation {
+    from {
+        width: 80%;
+        opacity: 1;
+        bottom: 0;
+        border-radius: 0;
+    }
+    to {
+        width: 0;
+        opacity: 0;
+        bottom: 70%;
+        border-bottom-left-radius: 50%;
+    }
+}

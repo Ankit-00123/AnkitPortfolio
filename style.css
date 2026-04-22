@@ -1,0 +1,18 @@
+/* ============================================
+   STYLE.CSS — Main entry point
+   All section styles are imported from Sections/
+   Edit each file individually for section changes
+   ============================================ */
+
+@import url('Sections/base.css');
+@import url('Sections/header.css');
+@import url('Sections/sidebar.css');
+@import url('Sections/hero.css');
+@import url('Sections/about.css');
+@import url('Sections/projects.css');
+@import url('Sections/skills.css');
+@import url('Sections/journey.css');
+@import url('Sections/contact.css');
+@import url('Sections/animations.css');
+@import url('Sections/audio.css');
+@import url('Sections/responsive.css');

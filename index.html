@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./journey/build/assets/index.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ============================================
+             BACKGROUND VIDEO (Global)
+             Edit: Sections/base.css → .back-vid
+        ============================================ -->
+        <video class="back-vid" autoplay loop muted playsinline disablePictureInPicture src="videos/galaxy.mp4"></video>
+
+
+        <!-- ============================================
+             HEADER — Navigation Bar
+             Edit: Sections/header.css
+        ============================================ -->
+        <header data-aos="fade-down" data-aos-duration="2000">
+            <div class="left">
+                <h2>Ankit</h2>
+            </div>
+
+            <ul>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#skills-section">Skills</a></li>
+                <li><a href="#projects-section">Projects</a></li>
+            </ul>
+
+            <div class="box-icons">
+                <p><i class='bx bxl-gmail'></i></p>
+                <p><i class='bx bxl-github'></i></p>
+                <p><i class='bx bxl-linkedin-square'></i></p>
+            </div>
+
+            <div class="menu-icon">
+                <i class='bx bx-menu'></i>
+            </div>
+        </header>
+
+
+        <!-- ============================================
+             SIDEBAR — Mobile Navigation Drawer
+             Edit: Sections/sidebar.css
+        ============================================ -->
+        <div class="sidebar">
+            <div class="close-icon">
+                <i class='bx bx-x'></i>
+            </div>
+
+            <ul>
+                <li><a href="#hero-section">Home</a></li>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#skills-section">Skills</a></li>
+                <li><a href="#projects-section">Projects</a></li>
+            </ul>
+
+            <div class="social-sidebar">
+                <a><i class='bx bxl-gmail'></i></a>
+                <a><i class='bx bxl-github'></i></a>
+                <a><i class='bx bxl-linkedin-square'></i></a>
+            </div>
+        </div>
+
+
+        <!-- ============================================
+             HERO — Full-Screen Landing Section
+             Edit: Sections/hero.css
+        ============================================ -->
+        <div class="blackhole-box" data-aos="fade-down" data-aos-duration="2000">
+            <video autoplay loop muted playsinline disablePictureInPicture src="videos/blackhole.mp4"></video>
+        </div>
+
+        <section class="hero" id="hero-section">
+            <div class="hero-info autoBlur" data-aos="fade-right" data-aos-duration="1000">
+
+                <!-- TEXT PRESSURE: Mouse-reactive variable font heading -->
+                <div class="text-pressure-wrap" id="textPressureContainer">
+                    <h1 class="text-pressure-title" id="textPressureTitle"></h1>
+                </div>
+
+                <!-- TYPEWRITER: Cycling role descriptions -->
+                <p class="typewriter-line" id="typewriterLine"><span id="typewriterText"></span><span
+                        class="typewriter-cursor" id="typewriterCursor">_</span></p>
+
+                <button onclick="document.querySelector('.contact-section').scrollIntoView({behavior: 'smooth'})"><i class='bx bx-send'></i> Contact Me</button>
+            </div>
+
+            <div class="skills-video-box">
+                <video class="skills-video autoBlur" autoplay loop muted playsinline disablePictureInPicture
+                    src="videos/hero-video.mp4"></video>
+            </div>
+
+            <div class="scroll-down"></div>
+        </section>
+
+
+        <!-- ============================================
+             ABOUT — 3D Interactive Tilt Cards
+             Edit: Sections/about.css
+        ============================================ -->
+        <section class="info-section" id="about-section">
+            <h1 class="section-title autoDisplay">My Core Knowledge 🧠</h1>
+            <p class="info-subtitle">Hover to tilt &nbsp;·&nbsp; <span>Press &amp; hold</span> to expand &nbsp;·&nbsp;
+                Release → spring back</p>
+
+            <style>
+                /* ── Equal height cards ── */
+                .info-cards {
+                    align-items: stretch !important;
+                }
+                .tilt-scene {
+                    display: flex !important;
+                    flex-direction: column !important;
+                }
+                .tilt-card {
+                    flex: 1 !important;
+                    padding-top: 1.1rem !important;   /* kill the top dead-space */
+                }
+                /* ── Income Tax divider ── */
+                .tilt-service-sep {
+                    font-size: .68rem;
+                    font-weight: 700;
+                    letter-spacing: .1em;
+                    text-transform: uppercase;
+                    opacity: .45;
+                    margin: .5rem 0 .25rem;
+                    padding-top: .5rem;
+                    border-top: 1px solid rgba(255,255,255,.08);
+                }
+            </style>
+
+            <div class="info-cards">
+
+                <!-- CARD 1 — About Me -->
+                <div class="tilt-scene" data-glow="#6c63ff">
+                    <div class="tilt-card">
+                        <div class="tilt-blob" style="width:180px;height:180px;background:rgba(108,99,255,.22);top:-45px;right:-40px;"></div>
+                        <div class="tilt-ripple-ring"></div>
+                        <div class="tilt-hold-ring"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11.5"/></svg></div>
+                        <div class="tilt-badge" style="--badge-bg:rgba(108,99,255,.14);--badge-color:#a59fff;--badge-border:rgba(108,99,255,.3);">
+                            <span class="dot"></span>About Me
+                        </div>
+                        <div class="tilt-card-icon" style="--icon-glow:rgba(108,99,255,.65);">🧑‍💼</div>
+                        <div class="tilt-card-desc" style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);">
+                            I specialize in <strong style="color:#a59fff;">GST, TDS &amp; Payroll</strong>—building systems that make them faster, smarter, and error-free.
+                            Using <strong style="color:#a59fff;">Excel, Python &amp; web technologies</strong>, I transform manual work into automated workflows.
+                            GST and automation aren't just my domain—they're where I do my best work.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2 — GST + Income Tax -->
+                <div class="tilt-scene" data-glow="#00e5c0">
+                    <div class="tilt-card">
+                        <div class="tilt-blob" style="width:200px;height:200px;background:rgba(0,229,192,.17);bottom:-50px;left:-45px;animation-delay:2.5s;"></div>
+                        <div class="tilt-ripple-ring"></div>
+                        <div class="tilt-hold-ring"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11.5"/></svg></div>
+                        <div class="tilt-badge" style="--badge-bg:rgba(0,229,192,.12);--badge-color:#00e5c0;--badge-border:rgba(0,229,192,.25);">
+                            <span class="dot"></span>Tax Services
+                        </div>
+                        <div class="tilt-card-icon" style="--icon-glow:rgba(0,229,192,.6);">🧾</div>
+                        <div class="tilt-card-title">Tax<br/>Services</div>
+                        <div class="tilt-card-desc">
+                            <ul style="padding-left:1.1em;margin:0;line-height:2;font-size:.97rem;font-weight:700;">
+                                <li>GST Return Filing</li>
+                                <li>GST Notices &amp; Registration</li>
+                            </ul>
+                            <div class="tilt-service-sep" style="color:#00e5c0;">Income Tax</div>
+                            <ul style="padding-left:1.1em;margin:0;line-height:2;font-size:.97rem;font-weight:700;">
+                                <li>ITR &amp; Tax Audit</li>
+                                <li>TDS Compliance &amp; Corrections</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3 — Other Services -->
+                <div class="tilt-scene" data-glow="#ff5caa">
+                    <div class="tilt-card">
+                        <div class="tilt-blob" style="width:170px;height:170px;background:rgba(255,92,170,.19);top:10px;right:5px;animation-delay:4s;"></div>
+                        <div class="tilt-ripple-ring"></div>
+                        <div class="tilt-hold-ring"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11.5"/></svg></div>
+                        <div class="tilt-badge" style="--badge-bg:rgba(255,92,170,.12);--badge-color:#ff8ecb;--badge-border:rgba(255,92,170,.3);">
+                            <span class="dot"></span>Other
+                        </div>
+                        <div class="tilt-card-icon" style="--icon-glow:rgba(255,92,170,.6);">💼</div>
+                        <div class="tilt-card-title">Other<br/>Services</div>
+                        <div class="tilt-card-desc">
+                            <ul style="padding-left:1.1em;margin:0;line-height:2;font-size:.97rem;font-weight:700;">
+                                <li>MIS &amp; Financial Statement</li>
+                                <li>Payroll, PF &amp; ESI</li>
+                                <li>Accounting</li>
+                                <li>ROC Compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /info-cards -->
+        </section>
+
+
+        <!-- ============================================
+             PROJECTS — My Projects Section
+             Edit: Sections/projects.css
+        ============================================ -->
+        <section class="my-project" id="projects-section">
+            <h1 class="section-title autoDisplay">My Projects 👨‍💻</h1>
+
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-vidbox autoBlur">
+                    <video loop id="projectVideo1" src="videos/project1.mp4"></video>
+                    <div class="hover-sign"></div>
+                </div>
+                <div class="project-info fadein-left">
+                    <h1>Tax <span class="gradient">Compliance</span> Automation Software</h1>
+                    <p>Developed a full Tax & Compliance automation suite including TDS PDF-to-Excel extraction, bulk
+                        GSTR-2B downloads, GSTR-1 JSON to Excel extraction, PAN to GSTIN verification, 26AS Text to
+                        Excel extraction, and IFSC validation.</p>
+
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-vidbox autoBlur">
+                    <video loop id="projectVideo2" src="videos/project2.mp4"></video>
+                </div>
+                <div class="project-info fadein-left">
+                    <h1>Web-Based <span class="gradient">Productivity</span> System</h1>
+                    <p>Built a web-based productivity system with employee-wise performance & time tracking, featuring
+                        multiple dynamic graphs and KPI dashboards for real-time operational insights.</p>
+
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-vidbox autoBlur">
+                    <video loop id="projectVideo3" src="videos/project3.mp4"></video>
+                </div>
+                <div class="project-info fadein-left">
+                    <h1>3D Web <span class="gradient">Profile</span> Portfolio</h1>
+                    <p>Interactive 3D web profile showcasing Skills, Career Journey and capabilities — built using
+                        multiple modern tools. I can also build complete websites &amp; web apps powered by AI tools.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================
+             SKILLS — My Skills Section & Tech Slider
+             Edit: Sections/skills.css
+        ============================================ -->
+        <section class="skills-section" id="skills-section">
+            <h1 class="section-title autoDisplay">My Skills 💪</h1>
+            <div class="skills-box autoDisplay">
+                <img class="skills-image" src="images/digital brain (2).png" alt="">
+
+                <div class="Designer">
+                    <h1 class="gradient" style="font-size:1.45rem;white-space:nowrap;">Accounts &amp; Tax Tools <i
+                            class='bx bx-calculator'></i></h1>
+                    <div style="margin-top:0.7rem;display:flex;flex-direction:column;gap:0.55rem;">
+                        <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;">
+                            <span style="font-weight:700;color:#fff;white-space:nowrap;min-width:160px;">Accounting
+                                &amp; Payroll</span>
+                            <span style="color:#a0b4cc;">Tally &nbsp;|&nbsp; Business Central &nbsp;|&nbsp; SAP Basic
+                                &nbsp;|&nbsp; HR One</span>
+                        </div>
+                        <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;">
+                            <span style="font-weight:700;color:#fff;white-space:nowrap;min-width:160px;">GST &amp; TDS
+                                Tools</span>
+                            <span style="color:#a0b4cc;">SPEQuta &nbsp;|&nbsp; Computax &nbsp;|&nbsp; Govt
+                                Utilities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coder">
+                    <h1 class="gradient" style="font-size:1.45rem;white-space:nowrap;">Automation Tools <i
+                            class='bx bx-code-block'></i></h1>
+                    <div style="margin-top:0.7rem;display:flex;flex-direction:column;gap:0.55rem;">
+                        <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;">
+                            <span style="font-weight:700;color:#fff;white-space:nowrap;min-width:160px;">Excel
+                                Automation</span>
+                            <span style="color:#a0b4cc;">VBA &nbsp;|&nbsp; Advance Excel &nbsp;|&nbsp; C#</span>
+                        </div>
+                        <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;">
+                            <span style="font-weight:700;color:#fff;white-space:nowrap;min-width:160px;">Web
+                                Automation</span>
+                            <span style="color:#a0b4cc;">Python &nbsp;|&nbsp; Selenium Basic</span>
+                        </div>
+                        <div style="display:flex;align-items:baseline;gap:0.5rem;flex-wrap:wrap;">
+                            <span style="font-weight:700;color:#fff;white-space:nowrap;min-width:160px;">Website / Web
+                                App</span>
+                            <span style="color:#a0b4cc;">Google Stitch &nbsp;|&nbsp; AntiGravity &nbsp;|&nbsp; VS Code
+                                &nbsp;|&nbsp; App Scripts &nbsp;|&nbsp; Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LOGO LOOP: Smooth infinite-scroll tech logos -->
+                <div class="logo-loop-container">
+                    <div class="logo-loop-fade logo-loop-fade-left"></div>
+                    <div class="logo-loop-fade logo-loop-fade-right"></div>
+                    <div class="logo-loop-track" id="logoLoopTrack">
+                        <div class="logo-loop-seq">
+                            <div class="logo-loop-item"><img src="images/1.png" alt="Excel"></div>
+                            <div class="logo-loop-item"><img src="images/2.png" alt="SAP"></div>
+                            <div class="logo-loop-item"><img src="images/3.png" alt="CSS3"></div>
+                            <div class="logo-loop-item"><img src="images/4.png" alt="GitHub"></div>
+                            <div class="logo-loop-item"><img src="images/5.png" alt="Python"></div>
+                            <div class="logo-loop-item"><img src="images/6.png" alt="Tool6"></div>
+                            <div class="logo-loop-item"><img src="images/7.png" alt="Code"></div>
+                            <div class="logo-loop-item"><img src="images/8.png" alt="TallyPrime"></div>
+                            <div class="logo-loop-item"><img src="images/9.png" alt="VSCode"></div>
+                            <div class="logo-loop-item"><img src="images/10.png" alt="Tool10"></div>
+                            <div class="logo-loop-item"><img src="images/11.png" alt="Tool11"></div>
+                            <div class="logo-loop-item"><img src="images/12.png" alt="Tool12"></div>
+                            <div class="logo-loop-item"><img src="images/13.png" alt="Tool13"></div>
+                            <div class="logo-loop-item"><img src="images/14.png" alt="Tool14"></div>
+                            <div class="logo-loop-item"><img src="images/15.png" alt="Tool15"></div>
+                            <div class="logo-loop-item"><img src="images/16.png" alt="Blender"></div>
+                            <div class="logo-loop-item"><img src="images/17.png" alt=""></div>
+                        </div>
+                        <div class="logo-loop-seq" aria-hidden="true">
+                            <div class="logo-loop-item"><img src="images/1.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/2.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/3.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/4.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/5.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/6.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/7.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/8.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/9.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/10.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/11.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/12.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/13.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/14.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/15.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/16.png" alt=""></div>
+                            <div class="logo-loop-item"><img src="images/17.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================
+             CAREER JOURNEY — Scroll-driven timeline
+             Edit: Sections/journey.css
+        ============================================ -->
+        <div id="journeySection" class="journey-section" style="width: 100%;"></div>
+
+
+        <!-- ============================================
+             AMBIENT SPACE AUDIO (Professional)
+             Edit: Sections/audio.css
+        ============================================ -->
+        <div class="floating-audio-toggle" id="floatingAudioBtn">
+            <i class='bx bx-volume-mute' id="audioIcon"></i>
+            <div class="audio-waves">
+                <span></span><span></span><span></span>
+            </div>
+            <!-- Portfolio Background Music -->
+            <audio id="mainAudio" loop
+                src="videos/Glass_Pulse.mp3"></audio>
+        </div>
+
+
+        <!-- ============================================
+             CONTACT — Let's Talk Section
+             Edit: Sections/contact.css
+        ============================================ -->
+        <section class="contact-section" style="margin-top: -8vh;">
+            <h1 class="section-title autoDisplay">Let's talk 😊</h1>
+
+            <div class="model-box autoBlur"
+                style="position: relative; width: 100%; max-width: 550px; height: 720px; margin-top: -80px;">
+                <div class="thought-cloud" id="thoughtCloud">
+                    <span class="thought-emoji">🤖</span>
+                    <span class="thought-text">Press & hold me!</span>
+                </div>
+
+                <div id="threejs-canvas" style="width: 100%; height: 100%; cursor: pointer;"></div>
+
+                <div class="circular-menu" id="circularMenu">
+                    <div class="menu-item" data-action="clap">👏</div>
+                    <div class="menu-item" data-action="salute">🫡</div>
+                    <div class="menu-item" data-action="victory">✌️</div>
+                </div>
+
+                <div class="hold-indicator" id="holdIndicator">
+                    <div class="hold-progress"></div>
+                </div>
+            </div>
+
+            <div class="contact-box autoBlur" style="width:min(520px,92vw);padding:2rem 2.4rem;" id="contactFormBox">
+                <p>Your Problem</p>
+                <textarea
+                    id="contact-message"
+                    class="input-message"
+                    placeholder="Describe your problem or query..."
+                    style="resize:vertical;min-height:120px;max-height:340px;width:100%;box-sizing:border-box;font-family:inherit;font-size:inherit;background:rgba(10,14,30,.75);border:1px solid rgba(255,255,255,.1);color:#e8eaf0;border-radius:10px;padding:.85rem 1rem;outline:none;transition:all 0.3s;"></textarea>
+
+                <div id="contact-error" style="color:#ff5c5c;font-size:0.85rem;margin-top:10px;display:none;font-weight:600;"></div>
+                <button id="send-msg-btn"><span>Send Message</span> <i class='bx bx-mail-send'></i></button>
+            </div>
+
+            <!-- Confirmation Modal Overlay -->
+            <div id="contact-modal" class="contact-modal-overlay">
+                <div class="contact-modal-content">
+                    <div class="contact-modal-icon">✉️</div>
+                    <h2>Confirm Send</h2>
+                    <p>Do you want to send this message?</p>
+                    <div class="contact-modal-actions">
+                        <button id="modal-cancel-btn" class="modal-btn-cancel">Cancel</button>
+                        <button id="modal-confirm-btn" class="modal-btn-confirm">Yes, Send 🚀</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================
+             FOOTER
+             Edit: Sections/contact.css → .footer
+        ============================================ -->
+        <section class="footer">
+            <h1 style="font-size: 16px; font-weight: normal; color: #aaa;">©️2025, Made with ❤️ by Ankit</h1>
+            <div class="box-icons">
+                <p><i class='bx bxl-gmail'></i></p>
+                <p><i class='bx bxl-github'></i></p>
+                <p><i class='bx bxl-linkedin-square'></i></p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="module" crossorigin src="./journey/build/assets/index.js"></script>
+    <script type="module" src="contact-3d.js"></script>
+    <!-- Custom Contact Form Flow -->
+    <script src="contact-form.js"></script>
+</body>
+
+</html>

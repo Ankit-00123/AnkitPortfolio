@@ -1,0 +1,408 @@
+/* ============================================
+   RESPONSIVE — All media queries
+   ============================================ */
+
+@media (max-aspect-ratio: 16/9) {
+    .back-vid {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .back-vid {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ---- Tablet / Small Desktop (≤ 1200px) ---- */
+@media screen and (max-width: 1200px) {
+    .blackhole-box video {
+        margin-top: -20%;
+    }
+
+    .hero-info h1 {
+        font-size: 40px;
+        max-width: 400px;
+        line-height: 40px;
+    }
+
+    .hero-info P {
+        max-width: 300px;
+    }
+
+    .skills-video-box {
+        right: 0%;
+    }
+
+    .skills-video-box video {
+        height: 500px;
+    }
+
+    .info-cards {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .tilt-card-title {
+        font-size: 1.3rem;
+    }
+
+    .my-project {
+        margin-bottom: 200px;
+        scale: 0.8;
+    }
+
+    .contact-section .section-title {
+        left: 30%;
+    }
+}
+
+/* ---- Mobile (≤ 700px) ---- */
+@media screen and (max-width: 700px) {
+    header {
+        position: fixed;
+        height: 50px;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    header .box-icons {
+        display: none;
+    }
+
+    .menu-icon {
+        display: inline;
+    }
+
+    .blackhole-box video {
+        width: 100%;
+        margin-top: -15%;
+    }
+
+    .autoBlur {
+        animation: none;
+    }
+
+    .hero {
+        flex-direction: column;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .hero-info {
+        bottom: 5%;
+    }
+
+    .scroll-down {
+        bottom: 5%;
+    }
+
+    .hero .skills-video-box {
+        height: 200px;
+        top: 5%;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tilt-card {
+        min-height: 300px;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .project-vidbox video {
+        width: 250px;
+        margin-left: -100px;
+    }
+
+    .project-info {
+        overflow: hidden;
+        padding-left: 0;
+        margin-left: -50px;
+    }
+
+    .project-info h1 {
+        font-size: 20px;
+        max-width: 200px;
+        text-wrap: wrap;
+    }
+
+    .project-info p {
+        font-size: 10px;
+        text-wrap: wrap;
+        max-width: 200px;
+        min-width: 0;
+    }
+
+    .project-info button {
+        padding: 5px 10px;
+    }
+
+    .my-project {
+        margin-bottom: 600px;
+    }
+
+    .project-card {
+        flex-direction: column;
+        margin-left: 25%;
+        gap: 30px;
+    }
+
+    .project-vidbox {
+        min-width: 200px;
+    }
+
+    .project-info {
+        width: 85%;
+    }
+
+    .project-info h1 {
+        text-wrap: nowrap;
+    }
+
+    .project-info p {
+        max-width: 300px;
+    }
+
+    .Designer {
+        top: 15%;
+        left: 18%;
+    }
+
+    .Designer h1 {
+        margin-bottom: 0;
+        margin-top: 70px;
+    }
+
+    .coder {
+        top: 50%;
+        left: 18%;
+    }
+
+    .coder h1 {
+        margin-bottom: 0;
+    }
+
+    .slider .list .item img {
+        width: 70%;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    .footer {
+        font-size: 10px;
+    }
+
+    .social-box {
+        margin-left: -90px;
+    }
+}
+
+/* ---- Small Mobile (≤ 480px) ---- */
+@media screen and (max-width: 480px) {
+    .hero .skills-video-box {
+        display: none;
+    }
+
+    .blackhole-box {
+        overflow: hidden;
+    }
+
+    .blackhole-box video {
+        width: 140%;
+        margin-top: -27%;
+    }
+
+    .left {
+        scale: 0.9;
+        margin-left: -30px;
+    }
+
+    .left h2 {
+        font-size: 20px;
+    }
+
+    .hero {
+        scale: 0.9;
+    }
+
+    .hero-info {
+        bottom: 15%;
+    }
+
+    .hero-info h1 {
+        font-size: 35px;
+    }
+
+    .scroll-down {
+        bottom: 15%;
+        left: 60%;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .tilt-card {
+        min-height: 280px;
+        padding: 1.8rem 1.5rem;
+    }
+
+    .tilt-card-title {
+        font-size: 1.2rem;
+    }
+
+    .project-card {
+        height: 50%;
+    }
+
+    .project-info p {
+        margin-bottom: 15px;
+    }
+
+    .project-info {
+        margin-left: -80px;
+    }
+
+    .skills-box {
+        height: 120vh;
+        margin-right: 30px;
+    }
+
+    .slider {
+        bottom: 0%;
+    }
+
+    .contact-section {
+        scale: 0.9;
+        height: 120vh;
+    }
+
+    .contact-section .section-title {
+        top: -30px;
+        left: 25%;
+    }
+
+    .footer {
+        padding: 15px;
+    }
+
+    .footer h1 {
+        max-width: 150px;
+    }
+
+    .footer .box-icons {
+        gap: 10px;
+    }
+}
+
+
+/* ---- Journey Section — Tablet (≤ 1200px) ---- */
+@media screen and (max-width: 1200px) {
+    .journey-kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .journey-dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .journey-closing-text {
+        font-size: 1.3rem;
+    }
+}
+
+/* ---- Journey Section — Mobile (≤ 700px) ---- */
+@media screen and (max-width: 700px) {
+    /* Stack timeline to left-aligned single column */
+    .journey-timeline::before {
+        left: 20px;
+    }
+
+    .journey-stage:nth-child(odd),
+    .journey-stage:nth-child(even) {
+        flex-direction: row;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .journey-stage:nth-child(odd) .journey-card-bullets {
+        justify-content: flex-start;
+    }
+
+    .journey-dot {
+        left: 20px;
+    }
+
+    .journey-kpi-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .journey-panels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-card-role {
+        font-size: 1.2rem;
+    }
+
+    .journey-dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .journey-closing-text {
+        font-size: 1.2rem;
+    }
+
+    .journey-subtitle {
+        font-size: 11px;
+    }
+}
+
+/* ---- Journey Section — Small Mobile (≤ 480px) ---- */
+@media screen and (max-width: 480px) {
+    .journey-section {
+        padding: 50px 0 30px;
+    }
+
+    .journey-card {
+        padding: 20px 16px;
+    }
+
+    .journey-card-icon {
+        font-size: 2rem;
+    }
+
+    .journey-kpi-value {
+        font-size: 1.5rem;
+    }
+
+    .journey-ai-indicator {
+        gap: 8px;
+    }
+
+    .journey-ai-bar {
+        height: 16px;
+    }
+}

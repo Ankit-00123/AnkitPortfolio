@@ -1,0 +1,80 @@
+/* ============================================
+   AMBIENT SPACE AUDIO — Professional Floating Toggle
+   ============================================ */
+
+.floating-audio-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: all 0.3s var(--ease);
+    color: var(--text);
+    overflow: hidden;
+}
+
+.floating-audio-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 6px 20px rgba(0,242,254,0.2);
+}
+
+.floating-audio-toggle i {
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.floating-audio-toggle:hover i {
+    color: #4facfe;
+}
+
+/* Tiny sound wave animation that appears when playing */
+.audio-waves {
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    gap: 3px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.audio-waves span {
+    width: 2px;
+    height: 4px;
+    background: #4facfe;
+    border-radius: 1px;
+    animation: tinyWave 0.5s infinite alternate ease-in-out;
+    animation-play-state: paused;
+}
+
+.floating-audio-toggle.is-playing .audio-waves {
+    opacity: 1;
+}
+
+.floating-audio-toggle.is-playing i {
+    opacity: 0; /* Hide icon when waves are showing */
+}
+
+.floating-audio-toggle.is-playing .audio-waves span {
+    animation-play-state: running;
+}
+
+.audio-waves span:nth-child(1) { animation-delay: 0.0s; }
+.audio-waves span:nth-child(2) { animation-delay: 0.15s; }
+.audio-waves span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes tinyWave {
+    0% { height: 4px; }
+    100% { height: 12px; }
+}
+

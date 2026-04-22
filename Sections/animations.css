@@ -1,0 +1,93 @@
+/* ============================================
+   ANIMATIONS — Scroll-triggered animation classes
+   ============================================ */
+
+/* Auto Blur: smooth blur-in / blur-out on scroll */
+.autoBlur {
+    animation: autoBlurAnimation linear both;
+    animation-timeline: view();
+    will-change: filter, opacity;
+}
+
+@keyframes autoBlurAnimation {
+    0% {
+        filter: blur(40px);
+        opacity: 0;
+    }
+    20% {
+        filter: blur(6px);
+        opacity: 0.6;
+    }
+    35%, 65% {
+        filter: blur(0);
+        opacity: 1;
+    }
+    80% {
+        filter: blur(6px);
+        opacity: 0.6;
+    }
+    100% {
+        filter: blur(40px);
+        opacity: 0;
+    }
+}
+
+/* Auto Display: element drops in AND blurs/shrinks out on scroll */
+.autoDisplay {
+    animation: autoDisplayAnimation linear both;
+    animation-timeline: view();
+    will-change: transform, filter, opacity;
+}
+
+@keyframes autoDisplayAnimation {
+    0% {
+        filter: blur(10px);
+        opacity: 0;
+        transform: translateY(-200px) scale(0);
+    }
+    35% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0) scale(1);
+    }
+    65% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        filter: blur(10px);
+        opacity: 0;
+        transform: translateY(100px) scale(0.5);
+    }
+}
+
+/* Fade-in from Left: slides in from left, blurs out on exit */
+.fadein-left {
+    animation: fadeInLeftAnimation linear both;
+    animation-timeline: view();
+    will-change: transform, filter, opacity;
+}
+
+@keyframes fadeInLeftAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px) scale(0.2);
+        filter: blur(10px);
+    }
+    35% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0px);
+    }
+    65% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(200px) scale(0.5);
+        filter: blur(10px);
+    }
+}
