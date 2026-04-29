@@ -38,10 +38,6 @@ const DashboardStage = ({ progress }: { progress: number }) => {
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    const stageVisible = progress >= 0.55;
-    groupRef.current.visible = stageVisible;
-    if (!stageVisible) return;
-
     const stageProgress = Math.min(1, (Math.max(0, progress - 0.6)) / 0.15);
     const eased = 1 - Math.pow(1 - stageProgress, 3);
     const t = state.clock.elapsedTime;
@@ -74,7 +70,7 @@ const DashboardStage = ({ progress }: { progress: number }) => {
   });
 
   return (
-    <group ref={groupRef} visible={false}>
+    <group ref={groupRef}>
       {/* Lights removed - global constant lighting used instead */}
 
       {panels.map((panel, i) => (

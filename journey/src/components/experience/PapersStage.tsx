@@ -4,7 +4,7 @@ import * as THREE from "three";
 import paperTextureSrc from "@/assets/paper-texture.jpg";
 import invoiceTextureSrc from "@/assets/invoice-texture.jpg";
 
-const PAPER_COUNT = 5;
+const PAPER_COUNT = 3;
 
 const PapersStage = ({ progress }: { progress: number }) => {
   const groupRef = useRef<THREE.Group>(null);
@@ -16,14 +16,14 @@ const PapersStage = ({ progress }: { progress: number }) => {
   const paperData = useMemo(() => {
     return Array.from({ length: PAPER_COUNT }, (_, i) => ({
       position: [
-        (Math.random() - 0.5) * 36,
-        (Math.random() - 0.5) * 18,
-        (Math.random() - 0.5) * 12,
+        (Math.random() - 0.5) * 8, // Keep strictly within screen width
+        (Math.random() - 0.5) * 4, // Keep strictly within screen height
+        -8 - Math.random() * 4, // Push deep into the scene (-12 to -8) so they have room to float without clipping edges
       ] as [number, number, number],
       rotation: [
-        (Math.random() - 0.5) * 0.6,
         (Math.random() - 0.5) * 0.4,
-        (Math.random() - 0.5) * 0.8,
+        (Math.random() - 0.5) * 0.4,
+        (Math.random() - 0.5) * 0.4,
       ] as [number, number, number],
       speed: 0.2 + Math.random() * 0.5,
       phase: Math.random() * Math.PI * 2,
@@ -43,8 +43,10 @@ const PapersStage = ({ progress }: { progress: number }) => {
 
       if (progress > 0.15) {
         const transProgress = Math.min(1, (progress - 0.15) / 0.18);
-        const gridX = ((i % 5) - 2) * 2.8;
-        const gridY = (Math.floor(i / 5) - 1.5) * 2.0;
+        
+        // 3 pages side-by-side, kept close to center to avoid screen edge cut
+        const gridX = (i - 1) * 4.0; 
+        const gridY = 0;
 
         mesh.position.x = THREE.MathUtils.lerp(mesh.position.x, gridX, transProgress);
         mesh.position.y = THREE.MathUtils.lerp(mesh.position.y, gridY, transProgress);
@@ -53,7 +55,7 @@ const PapersStage = ({ progress }: { progress: number }) => {
         mesh.rotation.y = THREE.MathUtils.lerp(mesh.rotation.y, 0, transProgress);
         mesh.rotation.z = THREE.MathUtils.lerp(mesh.rotation.z, 0, transProgress);
 
-        const scale = THREE.MathUtils.lerp(1, 0.6, transProgress);
+        const scale = THREE.MathUtils.lerp(1, 0.5, transProgress); // Scale to fit nicely side-by-side
         mesh.scale.setScalar(scale);
 
         const mat = mesh.material as THREE.MeshStandardMaterial;
@@ -61,9 +63,6 @@ const PapersStage = ({ progress }: { progress: number }) => {
       }
     });
 
-    if (groupRef.current) {
-      groupRef.current.visible = progress < 0.45;
-    }
   });
 
   return (
@@ -77,7 +76,7 @@ const PapersStage = ({ progress }: { progress: number }) => {
           position={data.position}
           rotation={data.rotation}
         >
-          <planeGeometry args={[7.0, 8.8]} />
+          <planeGeometry args={[8.5, 11.0]} /> {/* Large, but fits within frustum without edge-cutting */}
           <meshStandardMaterial
             map={data.useInvoice ? invoiceTex : paperTex}
             side={THREE.DoubleSide}

@@ -26,10 +26,6 @@ const GridStage = ({ progress }: { progress: number }) => {
   useFrame((state) => {
     if (!groupRef.current) return;
 
-    const stageVisible = progress >= 0.2 && progress < 0.7;
-    groupRef.current.visible = stageVisible;
-    if (!stageVisible) return;
-
     const t = state.clock.elapsedTime;
     const appear = Math.min(1, Math.max(0, (progress - 0.25) / 0.1));
 
@@ -64,7 +60,7 @@ const GridStage = ({ progress }: { progress: number }) => {
   });
 
   return (
-    <group ref={groupRef} visible={false}>
+    <group ref={groupRef}>
       {/* Lights removed - global constant lighting used instead */}
 
       {/* Main large Excel panel */}

@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div class="container">
 
         <!-- ============================================
@@ -413,33 +414,13 @@
              CONTACT — Let's Talk Section
              Edit: Sections/contact.css
         ============================================ -->
-        <section class="contact-section" style="margin-top: -8vh;">
-            <h1 class="section-title autoDisplay">Let's talk 😊</h1>
+        <section class="contact-section" style="margin-top: -8vh; flex-direction: column; align-items: center;">
+            <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Let's talk 😊</h1>
 
-            <div class="model-box autoBlur"
-                style="position: relative; width: 100%; max-width: 550px; height: 720px; margin-top: -80px;">
-                <div class="thought-cloud" id="thoughtCloud">
-                    <span class="thought-emoji">🤖</span>
-                    <span class="thought-text">Press & hold me!</span>
-                </div>
-
-                <div id="threejs-canvas" style="width: 100%; height: 100%; cursor: pointer;"></div>
-
-                <div class="circular-menu" id="circularMenu">
-                    <div class="menu-item" data-action="clap">👏</div>
-                    <div class="menu-item" data-action="salute">🫡</div>
-                    <div class="menu-item" data-action="victory">✌️</div>
-                </div>
-
-                <div class="hold-indicator" id="holdIndicator">
-                    <div class="hold-progress"></div>
-                </div>
-            </div>
-
-            <div class="contact-box autoBlur" style="width:min(520px,92vw);padding:2rem 2.4rem;" id="contactFormBox">
+            <div class="contact-box" style="width:min(700px,95vw);padding:2rem 2.4rem;" id="contactFormBox">
                 <p>Your Problem</p>
                 <textarea id="contact-message" class="input-message" placeholder="Describe your problem or query..."
-                    style="resize:vertical;min-height:120px;max-height:340px;width:100%;box-sizing:border-box;font-family:inherit;font-size:inherit;background:rgba(10,14,30,.75);border:1px solid rgba(255,255,255,.1);color:#e8eaf0;border-radius:10px;padding:.85rem 1rem;outline:none;transition:all 0.3s;"></textarea>
+                    style="resize:vertical;min-height:220px;max-height:500px;width:100%;box-sizing:border-box;font-family:inherit;font-size:inherit;background:rgba(10,14,30,.75);border:1px solid rgba(255,255,255,.1);color:#e8eaf0;border-radius:10px;padding:.85rem 1rem;outline:none;transition:all 0.3s;"></textarea>
 
                 <div id="contact-error"
                     style="color:#ff5c5c;font-size:0.85rem;margin-top:10px;display:none;font-weight:600;"></div>
