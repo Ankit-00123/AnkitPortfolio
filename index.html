@@ -93,7 +93,7 @@
                 <p class="typewriter-line" id="typewriterLine"><span id="typewriterText"></span><span
                         class="typewriter-cursor" id="typewriterCursor">_</span></p>
 
-                <button onclick="document.querySelector('.contact-section').scrollIntoView({behavior: 'smooth'})"><i
+                <button onclick="document.querySelector('.contact-light-section').scrollIntoView({behavior: 'smooth'})"><i
                         class='bx bx-send'></i> Contact Me</button>
             </div>
 
@@ -107,134 +107,104 @@
 
 
         <!-- ============================================
-             ABOUT — 3D Interactive Tilt Cards
-             Edit: Sections/about.css
+             ABOUT — Scroll Box with Content Cards
+             Edit: Sections/about.css + scroll-tilt.js
         ============================================ -->
-        <section class="info-section" id="about-section">
-            <h1 class="section-title autoDisplay">My Core Knowledge 🧠</h1>
-            <p class="info-subtitle">Hover to tilt &nbsp;·&nbsp; <span>Press &amp; hold</span> to expand &nbsp;·&nbsp;
-                Release → spring back</p>
+        <section class="scroll-container" id="about-section">
+          <div class="scroll-perspective">
+            <div class="scroll-header">
+              <p class="scroll-heading-sub">My Core Knowledge 🧠</p>
+              <h1 class="scroll-heading-main">Scroll to explore<br>my expertise</h1>
+            </div><!-- /scroll-header -->
 
-            <style>
-                /* ── Equal height cards ── */
-                .info-cards {
-                    align-items: stretch !important;
-                }
+            <div class="scroll-card-frame">
+              <div class="scroll-card-inner">
 
-                .tilt-scene {
-                    display: flex !important;
-                    flex-direction: column !important;
-                }
-
-                .tilt-card {
-                    flex: 1 !important;
-                    padding-top: 1.1rem !important;
-                    /* kill the top dead-space */
-                }
-
-                /* ── Income Tax divider ── */
-                .tilt-service-sep {
-                    font-size: .68rem;
-                    font-weight: 700;
-                    letter-spacing: .1em;
-                    text-transform: uppercase;
-                    opacity: .45;
-                    margin: .5rem 0 .25rem;
-                    padding-top: .5rem;
-                    border-top: 1px solid rgba(255, 255, 255, .08);
-                }
-            </style>
-
-            <div class="info-cards">
-
-                <!-- CARD 1 — About Me -->
-                <div class="tilt-scene" data-glow="#6c63ff">
-                    <div class="tilt-card">
-                        <div class="tilt-blob"
-                            style="width:180px;height:180px;background:rgba(108,99,255,.22);top:-45px;right:-40px;">
+                    <!-- Section: About Me -->
+                    <div class="scroll-section">
+                        <div class="scroll-section-head">
+                            <span class="scroll-badge" style="--badge-bg:rgba(108,99,255,.14);--badge-color:#a59fff;--badge-border:rgba(108,99,255,.3);">
+                                <span class="scroll-dot"></span>About Me
+                            </span>
+                            <span class="scroll-emoji">🧑‍💼</span>
                         </div>
-                        <div class="tilt-ripple-ring"></div>
-                        <div class="tilt-hold-ring"><svg viewBox="0 0 28 28">
-                                <circle cx="14" cy="14" r="11.5" />
-                            </svg></div>
-                        <div class="tilt-badge"
-                            style="--badge-bg:rgba(108,99,255,.14);--badge-color:#a59fff;--badge-border:rgba(108,99,255,.3);">
-                            <span class="dot"></span>About Me
-                        </div>
-                        <div class="tilt-card-icon" style="--icon-glow:rgba(108,99,255,.65);">🧑‍💼</div>
-                        <div class="tilt-card-desc"
-                            style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.78);">
+                        <p class="scroll-text">
                             I specialize in <strong style="color:#a59fff;">GST, TDS &amp; Payroll</strong>—building
                             systems that make them faster, smarter, and error-free.
                             Using <strong style="color:#a59fff;">Excel, Python &amp; web technologies</strong>, I
                             transform manual work into automated workflows.
                             GST and automation aren't just my domain—they're where I do my best work.
+                        </p>
+                    </div>
+
+                    <div class="scroll-divider"></div>
+
+                    <!-- Section: Taxation (GST & Income Tax) -->
+                    <div class="scroll-section">
+                        <div class="scroll-columns">
+                            <div>
+                                <div class="scroll-section-head" style="margin-bottom:0.7rem;">
+                                    <span class="scroll-badge" style="--badge-bg:rgba(0,229,192,.12);--badge-color:#00e5c0;--badge-border:rgba(0,229,192,.25); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em;">
+                                        <span class="scroll-dot"></span>GST
+                                    </span>
+                                </div>
+                                <ul class="scroll-list">
+                                    <li>GST all Compliance</li>
+                                    <li>Monthly Return, Annual Return, Audit</li>
+                                    <li>Department Notice Working &amp; Reply</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="scroll-section-head" style="margin-bottom:0.7rem;">
+                                    <span class="scroll-badge" style="--badge-bg:rgba(0,229,192,.12);--badge-color:#00e5c0;--badge-border:rgba(0,229,192,.25); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.05em;">
+                                        <span class="scroll-dot"></span>Income Tax
+                                    </span>
+                                </div>
+                                <ul class="scroll-list">
+                                    <li>ITR Filing, TAX Audit Support</li>
+                                    <li>MIS, Financial Statement</li>
+                                    <li>TDS compliance, Return, Correction</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- CARD 2 — GST + Income Tax -->
-                <div class="tilt-scene" data-glow="#00e5c0">
-                    <div class="tilt-card">
-                        <div class="tilt-blob"
-                            style="width:200px;height:200px;background:rgba(0,229,192,.17);bottom:-50px;left:-45px;animation-delay:2.5s;">
-                        </div>
-                        <div class="tilt-ripple-ring"></div>
-                        <div class="tilt-hold-ring"><svg viewBox="0 0 28 28">
-                                <circle cx="14" cy="14" r="11.5" />
-                            </svg></div>
-                        <div class="tilt-badge"
-                            style="--badge-bg:rgba(0,229,192,.12);--badge-color:#00e5c0;--badge-border:rgba(0,229,192,.25);">
-                            <span class="dot"></span>Tax Services
-                        </div>
-                        <div class="tilt-card-icon" style="--icon-glow:rgba(0,229,192,.6);">🧾</div>
-                        <div class="tilt-card-desc">
-                            <div class="tilt-service-sep"
-                                style="color:#00e5c0; border-top: none; padding-top: 0; margin-top: 0;">GST</div>
-                            <ul style="padding-left:1.1em;margin:0;line-height:2;font-size:.97rem;font-weight:700;">
-                                <li>GST All compliance</li>
-                                <li>GST Return, Audit, Notice</li>
-                            </ul>
-                            <div class="tilt-service-sep" style="color:#00e5c0;">Income Tax</div>
-                            <ul style="padding-left:1.1em;margin:0;line-height:2;font-size:.97rem;font-weight:700;">
-                                <li>ITR filling</li>
-                                <li>Tax Audit</li>
-                                <li>TDS All Compliance</li>
-                            </ul>
+                    <div class="scroll-divider"></div>
+
+                    <!-- Section: Other & Automation -->
+                    <div class="scroll-section">
+                        <div class="scroll-columns">
+                            <div>
+                                <div class="scroll-section-head" style="margin-bottom:0.7rem;">
+                                    <span class="scroll-badge" style="--badge-bg:rgba(255,92,170,.12);--badge-color:#ff8ecb;--badge-border:rgba(255,92,170,.3);">
+                                        <span class="scroll-dot"></span>Other
+                                    </span>
+                                    <span class="scroll-emoji">💼</span>
+                                </div>
+                                <ul class="scroll-list">
+                                    <li>Payroll, ESI, PF</li>
+                                    <li>ROC Return filling</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="scroll-section-head" style="margin-bottom:0.7rem;">
+                                    <span class="scroll-badge" style="--badge-bg:rgba(108,99,255,.14);--badge-color:#a59fff;--badge-border:rgba(108,99,255,.3);">
+                                        <span class="scroll-dot"></span>Automation
+                                    </span>
+                                    <span class="scroll-emoji">⚙️</span>
+                                </div>
+                                <ul class="scroll-list">
+                                    <li>Problem Solving, New Learnings</li>
+                                    <li>Custom Excel Function, Automation</li>
+                                    <li>Python Automation, Web Automation</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- CARD 3 — Other Services -->
-                <div class="tilt-scene" data-glow="#ff5caa">
-                    <div class="tilt-card">
-                        <div class="tilt-blob"
-                            style="width:170px;height:170px;background:rgba(255,92,170,.19);top:10px;right:5px;animation-delay:4s;">
-                        </div>
-                        <div class="tilt-ripple-ring"></div>
-                        <div class="tilt-hold-ring"><svg viewBox="0 0 28 28">
-                                <circle cx="14" cy="14" r="11.5" />
-                            </svg></div>
-                        <div class="tilt-badge"
-                            style="--badge-bg:rgba(255,92,170,.12);--badge-color:#ff8ecb;--badge-border:rgba(255,92,170,.3);">
-                            <span class="dot"></span>Other
-                        </div>
-                        <div class="tilt-card-icon" style="--icon-glow:rgba(255,92,170,.6);">💼</div>
-                        <div class="tilt-card-desc">
-                            <div class="tilt-service-sep" style="color:#00e5c0; border-top: none; padding-top: 0; margin-top: 0;">other Compliances</div>
-                            <ul style="padding-left:1.1em;margin:0;line-height:2;font-size:.97rem;font-weight:700;">
-                                <li>MIS &amp; Financial Statement</li>
-                                <li>Payroll, PF &amp; ESI</li>
-                                <li>Accounting</li>
-                                <li>ROC Compliance</li>
-                                <li>Custom Python Software</li>
-                                <li>Custom Excel Function</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- /info-cards -->
+              </div><!-- /scroll-card-inner -->
+            </div><!-- /scroll-card-frame -->
+          </div><!-- /scroll-perspective -->
         </section>
 
 
@@ -396,34 +366,96 @@
         <div id="journeySection" class="journey-section" style="width: 100%;"></div>
 
 
+
+
+
         <!-- ============================================
-             AMBIENT SPACE AUDIO (Professional)
-             Edit: Sections/audio.css
+             CONTACT — Light Activation Section
+             Edit: Sections/contact.css + contact-form.js
         ============================================ -->
-        <div class="floating-audio-toggle" id="floatingAudioBtn">
-            <i class='bx bx-volume-mute' id="audioIcon"></i>
-            <div class="audio-waves">
-                <span></span><span></span><span></span>
+        <section class="contact-light-section" id="contact-section">
+
+            <!-- Ambient light cone (triangular glow beneath bulb) -->
+            <div class="light-cone"></div>
+
+            <!-- Hanging wire + bulb — ONE unified SVG so wire always connects -->
+            <div class="bulb-assembly" id="bulbAssembly">
+                <svg id="bulbSceneSvg" class="bulb-scene-svg"
+                     viewBox="-200 -10 400 300"
+                     xmlns="http://www.w3.org/2000/svg"
+                     overflow="visible">
+                    <defs>
+                        <radialGradient id="glassGradOff" cx="40%" cy="55%" r="50%">
+                            <stop offset="0%"   stop-color="rgba(200,210,220,0.10)" />
+                            <stop offset="60%"  stop-color="rgba(150,155,165,0.06)" />
+                            <stop offset="100%" stop-color="rgba(100,105,115,0.02)" />
+                        </radialGradient>
+                        <radialGradient id="glassGradOn" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%"   stop-color="rgba(255,240,180,0.6)" />
+                            <stop offset="40%"  stop-color="rgba(255,215,120,0.3)" />
+                            <stop offset="80%"  stop-color="rgba(255,185,60,0.1)" />
+                            <stop offset="100%" stop-color="rgba(255,160,40,0.03)" />
+                        </radialGradient>
+                        <filter id="bulbGlow" x="-80%" y="-80%" width="260%" height="260%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="8"  result="blur1" />
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur2" />
+                            <feMerge><feMergeNode in="blur2" /><feMergeNode in="blur1" /><feMergeNode in="SourceGraphic" /></feMerge>
+                        </filter>
+                        <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%"   stop-color="#9a9a9e" />
+                            <stop offset="30%"  stop-color="#7a7a80" />
+                            <stop offset="60%"  stop-color="#5a5a5e" />
+                            <stop offset="100%" stop-color="#4a4a4e" />
+                        </linearGradient>
+                        <linearGradient id="contactGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%"  stop-color="#888" />
+                            <stop offset="100%" stop-color="#666" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Wire: line from ceiling anchor (0,0) to bulb top (bx,by) -->
+                    <!-- x2/y2 always equals bulb group position — guaranteed connected -->
+                    <line id="wireLine" x1="0" y1="0" x2="0" y2="80"
+                          stroke="#888" stroke-width="2" stroke-linecap="round" />
+
+                    <!-- Bulb group: centered at x=0, top at y=0 in local space -->
+                    <!-- JS moves this with transform="translate(bx, by)"         -->
+                    <g id="bulbGroup" transform="translate(0, 80)" style="cursor:grab">
+                        <rect x="-3" y="0" width="6" height="12" rx="2" fill="url(#contactGrad)" />
+                        <path d="M -15 8  L 15 8  L 18 16 L -18 16 Z" fill="#555" />
+                        <path d="M -18 16 L 18 16 L 18 50 L -18 50 Z" fill="url(#baseGrad)" />
+                        <line x1="-17" y1="22" x2="17" y2="22" stroke="rgba(255,255,255,0.12)" stroke-width="0.8" />
+                        <line x1="-17" y1="27" x2="17" y2="27" stroke="rgba(0,0,0,0.25)"       stroke-width="0.8" />
+                        <line x1="-17" y1="32" x2="17" y2="32" stroke="rgba(255,255,255,0.1)"  stroke-width="0.8" />
+                        <line x1="-17" y1="37" x2="17" y2="37" stroke="rgba(0,0,0,0.2)"        stroke-width="0.8" />
+                        <line x1="-17" y1="43" x2="17" y2="43" stroke="rgba(255,255,255,0.08)" stroke-width="0.8" />
+                        <path d="M -18 50 L 18 50 L 16 54 L -16 54 Z" fill="#666" />
+                        <path class="bulb-glass"
+                              d="M -16 54 C -16 60 -22 68 -30 88 C -38 108 -32 143 0 158 C 32 143 38 108 30 88 C 22 68 16 60 16 54 Z"
+                              fill="url(#glassGradOff)" stroke="rgba(180,185,195,0.3)" stroke-width="1.2" />
+                        <g class="filament-group">
+                            <line x1="-8"  y1="58" x2="-12" y2="98" class="filament" />
+                            <line x1="8"   y1="58" x2="12"  y2="98" class="filament" />
+                            <path d="M -12 98 Q -7 113 0 98 Q 7 113 12 98" class="filament filament-coil" fill="none" />
+                        </g>
+                        <path class="bulb-highlight" d="M -24 76 C -28 93 -26 113 -20 128"
+                              fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2.5" stroke-linecap="round" />
+                        <ellipse cx="-18" cy="83" rx="3" ry="7" fill="rgba(255,255,255,0.06)" transform="rotate(-10 -18 83)" />
+                        <ellipse cx="0" cy="156" rx="4" ry="3" fill="rgba(180,180,190,0.15)" />
+                    </g>
+                </svg>
+
+                <p class="light-text" id="lightText">Drag the bulb to turn on the light</p>
             </div>
-            <!-- Portfolio Background Music -->
-            <audio id="mainAudio" loop src="videos/Glass_Pulse.mp3"></audio>
-        </div>
 
+            <!-- Contact Form -->
+            <div class="contact-form" id="contactFormBox">
+                <h1 class="section-title contact-form-title">Let's talk 😊</h1>
 
-        <!-- ============================================
-             CONTACT — Let's Talk Section
-             Edit: Sections/contact.css
-        ============================================ -->
-        <section class="contact-section" style="margin-top: -8vh; flex-direction: column; align-items: center;">
-            <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Let's talk 😊</h1>
+                <p class="contact-form-label">Your Problem</p>
+                <textarea id="contact-message" class="input-message" placeholder="Describe your problem or query..."></textarea>
 
-            <div class="contact-box" style="width:min(700px,95vw);padding:2rem 2.4rem;" id="contactFormBox">
-                <p>Your Problem</p>
-                <textarea id="contact-message" class="input-message" placeholder="Describe your problem or query..."
-                    style="resize:vertical;min-height:220px;max-height:500px;width:100%;box-sizing:border-box;font-family:inherit;font-size:inherit;background:rgba(10,14,30,.75);border:1px solid rgba(255,255,255,.1);color:#e8eaf0;border-radius:10px;padding:.85rem 1rem;outline:none;transition:all 0.3s;"></textarea>
-
-                <div id="contact-error"
-                    style="color:#ff5c5c;font-size:0.85rem;margin-top:10px;display:none;font-weight:600;"></div>
+                <div id="contact-error"></div>
                 <button id="send-msg-btn"><span>Send Message</span> <i class='bx bx-mail-send'></i></button>
             </div>
 
@@ -457,6 +489,7 @@
 
     </div>
 
+    <script src="scroll-tilt.js"></script>
     <script src="app.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

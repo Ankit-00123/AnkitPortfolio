@@ -389,41 +389,6 @@ closeIcon.addEventListener('click', function () {
 })();
 
 
-// ============================================
-// AMBIENT SPACE AUDIO — Floating Toggle
-// Related: Sections/audio.css
-// ============================================
-
-(function () {
-    const audio = document.getElementById('mainAudio');
-    const toggleBtn = document.getElementById('floatingAudioBtn');
-    const audioIcon = document.getElementById('audioIcon');
-
-    if (!audio || !toggleBtn || !audioIcon) return;
-
-    // Optional: Lower ambient volume
-    audio.volume = 0.5;
-
-    let isPlaying = false;
-
-    function toggleAudio() {
-        if (isPlaying) {
-            audio.pause();
-            audioIcon.className = "bx bx-volume-mute";
-            toggleBtn.classList.remove('is-playing');
-        } else {
-            // Because autoplay is often blocked, calling play() on click is best.
-            audio.play().catch(e => console.log("Audio play failed:", e));
-            audioIcon.className = "bx bx-volume-full";
-            toggleBtn.classList.add('is-playing');
-        }
-        isPlaying = !isPlaying;
-    }
-
-    toggleBtn.addEventListener('click', toggleAudio);
-
-})();
-
 
 // ============================================
 // CAREER JOURNEY — Scroll-reveal, counters, live feed
@@ -578,54 +543,3 @@ closeIcon.addEventListener('click', function () {
 
 })();
 
-// ============================================
-// AUDIO — Background Music Loop Logic
-// ============================================
-const audioBtn = document.getElementById('floatingAudioBtn');
-const mainAudio = document.getElementById('mainAudio');
-
-if (audioBtn && mainAudio) {
-    // Toggling relies firmly on the audio's paused state
-    audioBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevent body click from interacting
-        if (mainAudio.paused) {
-            mainAudio.play().catch(() => {});
-        } else {
-            mainAudio.pause();
-        }
-    });
-
-    // Keep UI totally in sync automatically
-    mainAudio.addEventListener('play', () => {
-        audioBtn.classList.add('is-playing');
-        if (mainAudio.currentTime < 12) {
-            mainAudio.currentTime = 12;
-        }
-    });
-
-    mainAudio.addEventListener('pause', () => {
-        audioBtn.classList.remove('is-playing');
-    });
-
-    // Custom loop constraint: Play between 12s and 60s (1.00m)
-    mainAudio.addEventListener('timeupdate', () => {
-        if (mainAudio.currentTime >= 60) {
-            mainAudio.currentTime = 12;
-            mainAudio.play().catch(() => {});
-        }
-    });
-
-    // 1-Click Browser Bypass: Autoplay is blocked globally by Chrome/Safari
-    // We launch it smoothly the moment the user clicks anywhere on the site
-    const startAudio = () => {
-        if (mainAudio.paused) {
-            mainAudio.play().then(() => {
-                document.removeEventListener('click', startAudio);
-                document.removeEventListener('touchstart', startAudio);
-            }).catch(() => {});
-        }
-    };
-    
-    document.addEventListener('click', startAudio);
-    document.addEventListener('touchstart', startAudio);
-}
