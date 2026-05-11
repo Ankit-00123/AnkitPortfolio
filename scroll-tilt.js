@@ -14,7 +14,7 @@
     if (!header || !cardFrame) return;
 
     // ── Config ──
-    const ROTATE_START = 20;
+    const ROTATE_START = 40;
     const ROTATE_END = 0;
     const SCALE_DESKTOP = [1.05, 1];
     const SCALE_MOBILE  = [0.75, 0.95];
@@ -28,7 +28,7 @@
     let targetScale     = SCALE_DESKTOP[0];
     let targetTranslate = 0;
 
-    const SMOOTHING = 0.08; // lower = smoother (0.05–0.12 sweet spot)
+    const SMOOTHING = 0.05; // lower = smoother (0.05–0.12 sweet spot)
 
     function isMobile() {
         return window.innerWidth <= 768;
