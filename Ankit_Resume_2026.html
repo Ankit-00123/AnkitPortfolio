@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankit – GST · TDS · Income Tax · Automation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink:        #1a1a2e;
+    --deep:       #16213e;
+    --accent:     #0f3460;
+    --teal:       #00b4d8;
+    --teal-light: #90e0ef;
+    --warm:       #e8f4f8;
+    --rule:       #d0e8f0;
+    --muted:      #5a6a7a;
+    --white:      #ffffff;
+    --page-w:     210mm;
+    --page-h:     297mm;
+    --margin-x:   6mm;
+    --margin-y:   11mm;
+  }
+
+  html, body {
+    background: #d8e4ec;
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    margin: 8mm auto;
+    background: var(--white);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    display: grid;
+    grid-template-columns: 60mm 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--deep);
+    color: var(--white);
+    padding: var(--margin-y) 7.5mm var(--margin-y) var(--margin-x);
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+    min-height: var(--page-h);
+  }
+
+  .profile-photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4mm;
+  }
+
+  .profile-photo {
+    width: 28mm;
+    height: 36mm;
+    border-radius: 1.5mm;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    object-position: center top;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .name-block {
+    border-bottom: 1px solid rgba(0,180,216,0.35);
+    padding-bottom: 4.5mm;
+  }
+
+  .name-block h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 21pt;
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.3px;
+    color: var(--white);
+  }
+
+  .name-block h1 span { color: var(--teal); }
+
+  .title-tag {
+    margin-top: 2.5mm;
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    line-height: 1.5;
+  }
+
+  /* sidebar section label */
+  .s-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 2.5mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .s-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0,180,216,0.25);
+  }
+
+  /* contact list */
+  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 2mm; }
+  .contact-list li {
+    font-size: 7.8pt;
+    color: rgba(255,255,255,0.82);
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5mm;
+    line-height: 1.4;
+  }
+  .contact-list li .icon {
+    color: var(--teal);
+    font-size: 8.5pt;
+    min-width: 10px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .contact-list a { color: var(--teal-light); text-decoration: none; }
+
+  /* skill chips */
+  .skill-group { margin-bottom: 2mm; }
+  .skill-group-title {
+    font-size: 7pt;
+    font-weight: 600;
+    color: var(--teal-light);
+    margin-bottom: 1.5mm;
+  }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 1.5mm; }
+  .chip {
+    background: rgba(0,180,216,0.10);
+    border: 1px solid rgba(0,180,216,0.28);
+    color: rgba(255,255,255,0.85);
+    font-size: 6.8pt;
+    padding: 1.2mm 2.8mm;
+    border-radius: 2px;
+    line-height: 1;
+  }
+  .chip.hl {
+    background: rgba(0,180,216,0.22);
+    border-color: var(--teal);
+    color: var(--white);
+  }
+
+  /* skills list */
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2mm;
+  }
+  .skills-list li {
+    position: relative;
+    padding-left: 4mm;
+    line-height: 1.35;
+  }
+  .skills-list li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: var(--teal-light);
+    font-size: 7pt;
+    top: 1.5px;
+  }
+  .skills-list li strong {
+    font-size: 8.5pt;
+    color: var(--white);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.6mm;
+  }
+  .skills-detail {
+    font-size: 7.6pt;
+    color: rgba(255, 255, 255, 0.64);
+    line-height: 1.35;
+  }
+
+  /* education */
+  .edu-item { margin-bottom: 2.2mm; }
+  .edu-item .degree { font-size: 7.8pt; font-weight: 600; color: var(--white); line-height: 1.3; }
+  .edu-item .school { font-size: 7.3pt; color: rgba(255,255,255,0.62); margin-top: 0.5mm; }
+  .edu-item .year   { font-size: 6.8pt; color: var(--teal); margin-top: 0.4mm; }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    padding: var(--margin-y) var(--margin-x) var(--margin-y) 7.5mm;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5mm;
+  }
+
+  /* section heading */
+  .sec-head {
+    font-size: 6.8pt;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 2.5mm;
+    margin-bottom: 2.5mm;
+  }
+  .sec-head::before {
+    content: '';
+    width: 3.2mm;
+    height: 3.2mm;
+    background: var(--teal);
+    border-radius: 1px;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+  .sec-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* summary */
+  .summary-text {
+    font-size: 8.6pt;
+    color: var(--muted);
+    line-height: 1.5;
+    border-left: 3px solid var(--teal);
+    padding-left: 4mm;
+  }
+  .summary-text strong { color: var(--ink); }
+
+  /* impact bar */
+  .impact-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2mm;
+    background: var(--warm);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 3mm 4mm;
+  }
+  .impact-item { text-align: center; }
+  .impact-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17pt;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .impact-num span { color: var(--teal); font-size: 13pt; }
+  .impact-desc {
+    font-size: 6.8pt;
+    color: var(--muted);
+    margin-top: 0.8mm;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* job card */
+  .job { margin-bottom: 3.5mm; }
+  .job-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    margin-bottom: 0.8mm;
+  }
+  .job-title    { font-size: 9.5pt; font-weight: 700; color: var(--ink); line-height: 1.2; }
+  .job-company  { font-size: 8.2pt; font-weight: 600; color: var(--accent); margin-top: 0.4mm; }
+  .job-badge {
+    font-size: 6.8pt;
+    font-weight: 600;
+    color: var(--teal);
+    background: rgba(0,180,216,0.07);
+    border: 1px solid rgba(0,180,216,0.22);
+    padding: 1mm 2.8mm;
+    border-radius: 2px;
+    white-space: nowrap;
+    line-height: 1;
+    align-self: center;
+  }
+  .job-meta { font-size: 7.2pt; color: var(--muted); margin-bottom: 1.5mm; }
+
+  /* bullets */
+  ul.b {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1mm;
+    padding-left: 0;
+  }
+  ul.b li {
+    font-size: 8.2pt;
+    color: #2c3e50;
+    padding-left: 3.8mm;
+    position: relative;
+    line-height: 1.42;
+  }
+  ul.b li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 7.5pt;
+    top: 1px;
+  }
+  ul.b li strong { color: var(--ink); font-weight: 600; }
+
+  /* project card */
+  .proj { border-left: 2.5px solid var(--teal); padding-left: 4mm; margin-bottom: 3.5mm; }
+  .proj-title { font-size: 8.8pt; font-weight: 700; color: var(--ink); }
+  .proj-stack { font-size: 6.8pt; color: var(--teal); font-weight: 600; margin: 0.7mm 0 1.5mm; letter-spacing: 0.4px; }
+
+  /* philosophy box p2 */
+  .phil-box {
+    background: rgba(0,180,216,0.07);
+    border: 1px solid rgba(0,180,216,0.2);
+    border-radius: 3px;
+    padding: 4mm;
+  }
+  .phil-line {
+    font-size: 7.8pt;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.6;
+    display: flex;
+    gap: 2mm;
+    margin-bottom: 1.5mm;
+  }
+  .phil-line:last-child { margin-bottom: 0; }
+  .phil-line .pi { color: var(--teal); flex-shrink: 0; }
+
+  /* print */
+  @media print {
+    body { 
+      background: white; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    }
+    .page { 
+      margin: 0; 
+      box-shadow: none; 
+      page-break-after: always; 
+      page-break-inside: avoid;
+    }
+  }
+  @page { size: A4; margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ PAGE 1 ═══════════════════ -->
+<div class="page">
+
+  <!-- SIDEBAR P1 -->
+  <aside class="sidebar">
+
+    <div class="profile-photo-container">
+      <img src="profile.jpg" alt="Ankit" class="profile-photo">
+    </div>
+
+    <div class="name-block">
+      <h1>An<span>kit</span></h1>
+      <div class="title-tag">GST · TDS · Income Tax<br>Payroll · Automation</div>
+    </div>
+
+    <!-- CONTACT & AVAILABILITY -->
+    <div>
+      <div class="s-label">Contact</div>
+      <ul class="contact-list">
+        <li><span class="icon">✆</span>+91 83070 01238</li>
+        <li><span class="icon">✉</span><a href="mailto:mr.ankit00789@gmail.com">mr.ankit00789@gmail.com</a></li>
+        <li><span class="icon">⬡</span><a href="https://ankit-portfolio-wheat.vercel.app" target="_blank" style="font-size: 7.2pt; white-space: nowrap;">ankit-portfolio-wheat.vercel.app</a></li>
+        <li><span class="icon">₹</span>Current CTC: ₹7 LPA</li>
+        <li><span class="icon">◎</span>Location: Delhi NCR</li>
+        <li><span class="icon">◷</span>Notice Period: 15 to 30 days</li>
+      </ul>
+    </div>
+
+    <!-- CORE EXPERTISE — TAX FIRST -->
+    <div>
+      <div class="s-label">Core Expertise</div>
+      <ul class="skills-list">
+        <li>
+          <strong>GST Compliance &amp; Filings</strong>
+          <div class="skills-detail">
+            • Returns: GSTR-1, 2B matching, 3B, 6 (ISD Return)<br>
+            • Annual: GSTR-9 / 9C audit independently working<br>
+            • Notices: Replies to demands &amp; query resolution
+          </div>
+        </li>
+        <li>
+          <strong>TDS Return Filing</strong>
+          <div class="skills-detail">
+            • Returns: Forms 24Q, 26Q, 27Q &amp; 27EQ filings<br>
+            • Compliance: Section-wise rules &amp; corrections<br>
+            • Auditing: Notice resolution &amp; challan verification
+          </div>
+        </li>
+        <li>
+          <strong>Income Tax &amp; ITR</strong>
+          <div class="skills-detail">
+            • ITR Filings: Forms 1 to 4 for diverse entities<br>
+            • Audit: End-to-end support for Form 3CA / 3CD<br>
+            • Computations: Tax sheets &amp; advance tax calculations
+          </div>
+        </li>
+        <li>
+          <strong>Accounting &amp; Payroll</strong>
+          <div class="skills-detail">
+            • Reconciliations: Bank recon, P&amp;L &amp; ledger audits<br>
+            • Payroll: EPF, ESI filings &amp; Form 16 issuance<br>
+            • Corporate: ROC compliance &amp; MCA filing support
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- AUTOMATION SKILLS — EXCEL & VBA -->
+    <div>
+      <div class="s-label">Excel &amp; VBA Automation</div>
+      <ul class="skills-list">
+        <li>
+          <strong>Excel &amp; VBA Development</strong>
+          <div class="skills-detail">
+            • Macros, VSTO Add-ins &amp; custom shortcuts<br>
+            • Excel custom functions (UDFs) &amp; Add-in files<br>
+            • Automated reconciliation &amp; matching processes
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN P1 -->
+  <main class="main">
+
+    <!-- SUMMARY -->
+    <section>
+      <div class="sec-head">Professional Summary</div>
+      <p class="summary-text">
+        GST &amp; Tax professional with <strong>5+ years of end-to-end compliance experience</strong> across CA firms, large companies and listed entities — handled independently. Beyond filing returns, I build the systems that make compliance faster and nearly hands-free. Every cycle I've touched gets automated: GSTR-2B reconciliation, TDS management, payroll, 26AS parsing, notice workings. <strong>Teams that spent 3 days on month-end are doing it in 3 hours.</strong> I bring deep GST and income tax domain knowledge, paired with the rare ability to translate that into Excel VBA, Python and AI-powered tools — cutting manual effort by <strong>70–80% permanently.</strong>
+      </p>
+    </section>
+
+    <!-- IMPACT NUMBERS -->
+    <div class="impact-bar">
+      <div class="impact-item">
+        <div class="impact-num">70<span>–80%</span></div>
+        <div class="impact-desc">Reduction in manual compliance effort across GST, TDS &amp; payroll</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">Excel</div>
+        <div class="impact-desc">Automation, VBA &amp; VSTO Development</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">5<span>+ yrs</span></div>
+        <div class="impact-desc">Across CA firms, large companies &amp; listed entities</div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="sec-head">Work Experience</div>
+
+      <!-- JOB 1 -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Senior Executive – Finance &amp; Taxation</div>
+            <div class="job-company">Taxmann Publications Pvt. Ltd.</div>
+          </div>
+          <div class="job-badge">Nov 2025 – Present</div>
+        </div>
+        <div class="job-meta">Delhi NCR &nbsp;·&nbsp; Full-time</div>
+        <ul class="b">
+          <li>Perform <strong>bank reconciliation &amp; bill booking</strong> — reconcile bank accounts and book contra and other adjustment or expense entries.</li>
+          <li>Provide <strong>GST audit &amp; GSTR-3B support</strong> — prepared monthly GSTR-3B data workings and GSTR-9/9C Working for audit support.</li>
+          <li>Manage <strong>royalty workings</strong> — processed calculations and prepared half yearly workings for royalty verification.</li>
+          <li>Provide <strong>TDS 24Q working support</strong> — compiled data and prepared support workings for quarterly TDS returns.</li>
+          <li>Process <strong>payroll for 300+ employees</strong> — salary structuring, EPF/ESI deductions, Form 16 generation and full reconciliation with income tax workings.</li>
+          <li>Built <strong>Python &amp; Excel VBA automation tools</strong> — reduced monthly and daily manual tasks and time by 50-60% (e.g., automated sending emails with attachments to 300+ authors, reducing a 3-4 day process to seconds).</li>
+        </ul>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Tax Accountant</div>
+            <div class="job-company">CA Firms</div>
+          </div>
+          <div class="job-badge">Aug 2022 – Nov 2025</div>
+        </div>
+        <div class="job-meta">Delhi NCR &nbsp;·&nbsp; Full-time &nbsp;·&nbsp; 3 years 3 months</div>
+        <ul class="b">
+          <li><strong>GST compliance for large and listed companies</strong> — GSTR-1/3B/6/9/9C, GSTR-2B reconciliation, ITC reversals; handled <strong>GST demand notices end-to-end</strong> without external help — drafted replies, prepared workings, resolved multiple notices successfully.</li>
+          <li>Provide <strong>end-to-end tax audit support</strong> — prepared drafts of Form 3CA/3CD, compiled financial statements, and assisted in computations of income for clients.</li>
+          <li>Filed <strong>TDS returns (24Q, 26Q, 27Q)</strong>, resolved demand notices and managed corrections; issued Form 16/16A to 100+ deductees on schedule.</li>
+          <li>Filed <strong>ITR 1–4</strong> for individuals, firms and companies; prepared advance tax workings, tax computation sheets and handled refund follow-ups.</li>
+          <li>Built <strong>Excel VBA automation for GSTR-2B matching</strong> — reduced GST prep from 2 days to under 2 hours per client per month; automation continued in use after my tenure ended.</li>
+          <li>Developed <strong>Python automation projects for the team</strong> — streamlined routine data matching and automated report compilation, improving productivity across the office.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- EARLIER EXPERIENCE -->
+    <section>
+      <div class="sec-head">Earlier Experience</div>
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Junior Accountant</div>
+            <div class="job-company">Proprietorship Service Company</div>
+          </div>
+          <div class="job-badge">Sep 2020 – Aug 2022</div>
+        </div>
+        <div class="job-meta">Delhi NCR &nbsp;·&nbsp; Full-time</div>
+        <ul class="b">
+          <li>Maintain <strong>daily accounting</strong> — managed sales, purchase, receipts, and payments with full ledger classification, monthly reconciliations, and inventory records.</li>
+          <li>Prepare <strong>daily expense reports</strong> — compiled and structured daily expense sheets for tracking and cost control.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div><!-- end page 1 -->
+
+
+<!-- ═══════════════════ PAGE 2 ═══════════════════ -->
+<div class="page">
+
+  <!-- SIDEBAR P2 -->
+  <aside class="sidebar">
+
+    <div>
+      <div class="s-label">Automation &amp; Tools</div>
+      <ul class="skills-list">
+        <li>
+          <strong>Python Scripting</strong>
+          <div class="skills-detail">
+            • Desktop Apps: tkinter / PySide6 / Plotly tools<br>
+            • PDF Parsing: Data extraction (Form 26AS/Challans)<br>
+            • Security: Machine-lock licensing &amp; locking
+          </div>
+        </li>
+        <li>
+          <strong>Cloud &amp; Workflows</strong>
+          <div class="skills-detail">
+            • Google Apps Script: Dashboards &amp; sheets automation<br>
+            • Power Query: Reconciliations &amp; data pipelines<br>
+            • Integration: n8n workflow setups for systems
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="s-label">ERP &amp; Compliance Software</div>
+      <ul class="skills-list">
+        <li><strong>Tally ERP &amp; SAP</strong></li>
+        <li><strong>MS Business Central</strong></li>
+        <li><strong>HR One</strong></li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <div style="margin-top:2mm;">
+      <div class="s-label">Education</div>
+      <div class="edu-item">
+        <div class="degree">Bachelor of Commerce (B.Com)</div>
+        <div class="school">IGNOU University</div>
+        <div class="year">2021 – 2024</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">Senior Secondary (12th)</div>
+        <div class="school">HBSE Board &nbsp;·&nbsp; 84%</div>
+        <div class="year">2019 – 2020</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">Secondary (10th)</div>
+        <div class="school">HBSE Board &nbsp;·&nbsp; 84%</div>
+        <div class="year">2017 – 2018</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-label">What I Bring</div>
+      <ul class="contact-list">
+        <li><span class="icon">✦</span>GST law — practical &amp; procedural depth</li>
+        <li><span class="icon">✦</span>Handles notices &amp; audits without support</li>
+        <li><span class="icon">✦</span>Automates every repetitive compliance cycle</li>
+        <li><span class="icon">✦</span>Tax domain knowledge + Python + VBA in one person</li>
+        <li><span class="icon">✦</span>Reduces whole team effort — permanently, not once</li>
+        <li><span class="icon">✦</span>Thinks in systems, not tasks</li>
+        <li><span class="icon">✦</span>Gets things done under deadline pressure</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="s-label">Work Philosophy</div>
+      <ul class="contact-list">
+        <li><span class="icon">✦</span>Every manual task is an automation waiting to happen</li>
+        <li><span class="icon">✦</span>Compliance depth first — no surprises at audit</li>
+        <li><span class="icon">✦</span>If your team works late on month-end, I've probably already automated that</li>
+        <li><span class="icon">✦</span>Build once. Save time forever.</li>
+      </ul>
+    </div>
+
+
+  </aside>
+
+  <!-- MAIN P2 -->
+  <main class="main">
+
+
+
+    <!-- KEY PROJECTS -->
+    <section>
+      <div class="sec-head">Automation Builds &amp; Key Projects</div>
+
+      <div class="proj">
+        <div class="proj-title">1. Tax Automation Suite — Commercial Desktop Product</div>
+        <div class="proj-stack">Python (tkinter / Plotly / PySide6) · Excel VBA · PDF Parsing · Machine-Lock Licensing</div>
+        <ul class="b">
+          <li>Built a licensed, multi-module desktop application covering GST, TDS, and verification for professional tax clients.</li>
+          <li><strong>GST Module:</strong> Auto-downloads GSTR-2B portal data for multiple registrations and merges all files into a single Excel file; bulk downloads GSTR-1 JSON files, merges them into Excel, and validates GSTIN status via PAN.</li>
+          <li><strong>TDS Module:</strong> Extracts Form 26AS PDF data to auto-populate Excel workbooks, parses TDS Challan PDFs into structured reports, and verifies Aadhaar-PAN link status — eliminating manual data entry and cutting TDS cycle time by ~80%.</li>
+          <li><strong>Verification Module:</strong> Integrated an IFSC verification tool to automatically validate bank details and branch information.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="proj-title">2. DelhiTaxi Pro — Commercial Booking Platform</div>
+        <div class="proj-stack">Web Technologies · Node.js · APIs · Database</div>
+        <ul class="b">
+          <li>Built and launched a production-ready, commercial taxi booking platform for the NCR market, designed as a sellable product.</li>
+          <li>Integrated real-time booking, route mappings, and automated invoice generation to streamline booking operations.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="proj-title">3. 3D Interactive Portfolio Website</div>
+        <div class="proj-stack">Three.js · React Three Fiber · Framer Motion · WebGL</div>
+        <ul class="b">
+          <li>Built a highly interactive 3D web profile to showcase professional skills, tax automation experience, coding background, and project portfolios in an engaging, animated layout.</li>
+          <li>Implemented custom 3D animations and responsive camera controls to create a modern and premium developer-style presentation.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="proj-title">4. Advanced Excel Automation &amp; VSTO Add-ins</div>
+        <div class="proj-stack">Excel VBA · VSTO (C# / .NET) · Office Add-ins</div>
+        <ul class="b">
+          <li>Developed custom Excel functions (UDFs), custom shortcuts, and add-in files to extend standard Excel capabilities for the finance team.</li>
+          <li>Built VSTO-based automated processes for bank reconciliation and GST reconciliation, eliminating manual matching and data entry.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="proj-title">5. Google Apps Script Web Apps</div>
+        <div class="proj-stack">Google Apps Script · HTML/CSS/JS · Google Sheets API</div>
+        <ul class="b">
+          <li><strong>Loan Pro Dashboard:</strong> Built a custom dashboard to manage lending operations and generate future projection data.</li>
+          <li><strong>Personal Financial Management:</strong> Designed a real-time tracker for cash inflows/outflows with interactive charts and tables.</li>
+          <li><strong>Attendance Management:</strong> Created an automated web app that calculates employee overtime (OT) in minutes, replacing a manual 1-day task.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section>
+      <div class="sec-head">Key Achievements</div>
+      <ul class="b">
+        <li><strong>70–80% reduction in manual processing</strong> across GST, TDS, and payroll operations through custom automation.</li>
+        <li><strong>Independently launched DelhiTaxi Pro</strong>, a commercial booking platform for the NCR market.</li>
+        <li><strong>Developed a robust problem-solving mindset</strong>, building the confidence to independently research, debug, and resolve complex tax compliance and technical challenges.</li>
+        <li><strong>Created long-term operational efficiency</strong> by building automation tools that teams continue to use and save hours daily, long after my tenure.</li>
+        <li><strong>Mastered AI-assisted development</strong>, using advanced debugging and prompt interaction with AI models to rapidly build and ship complex automation tools.</li>
+      </ul>
+    </section>
+
+  </main>
+</div><!-- end page 2 -->
+
+</body>
+</html>
