@@ -4,7 +4,7 @@
 
 /* ─── SCROLL CONTAINER (tall for scroll travel) ────── */
 .scroll-container {
-    min-height: 80rem;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,14 +16,14 @@
 
 @media (min-width: 768px) {
     .scroll-container {
-        min-height: 100rem;
-        padding: 5rem;
+        min-height: auto;
+        padding: 3rem;
     }
 }
 
 /* ─── PERSPECTIVE WRAPPER ────────────────────── */
 .scroll-perspective {
-    padding: 2.5rem 0 10rem;
+    padding: 2.5rem 0 3rem;
     width: 100%;
     position: relative;
     perspective: 1000px;
@@ -31,7 +31,7 @@
 
 @media (min-width: 768px) {
     .scroll-perspective {
-        padding: 5rem 0 10rem;
+        padding: 3rem 0 3rem;
     }
 }
 
@@ -83,6 +83,7 @@
         0 233px 65px rgba(0, 0, 0, 0.01);
     will-change: transform;
     transform-style: preserve-3d;
+    transition: box-shadow 0.5s ease;
 }
 
 @media (min-width: 768px) {

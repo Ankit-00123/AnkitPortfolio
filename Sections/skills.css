@@ -133,7 +133,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s cubic-bezier(.23,1,.32,1), filter 0.3s ease;
+    transition: transform 0.5s cubic-bezier(.23,1,.32,1), filter 0.5s ease;
 }
 
 .logo-loop-item img {
@@ -151,5 +151,5 @@
 .logo-loop-track:hover .logo-loop-item:hover {
     filter: grayscale(0) opacity(1);
     transform: scale(1.15);
-    transition: transform 0.35s cubic-bezier(.23,1,.32,1), filter 0.35s ease;
+    transition: transform 0.5s cubic-bezier(.23,1,.32,1), filter 0.5s ease;
 }
